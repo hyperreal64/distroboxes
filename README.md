@@ -1,4 +1,4 @@
-# toolboxes
+# distroboxes
 
 Centralized repository of containers designed for Toolbox/Distrobox with batteries included. These toolboxes strive for:
 
