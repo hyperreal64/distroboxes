@@ -1,6 +1,6 @@
 # distroboxes
 
-Centralized repository of containers designed for Toolbox/Distrobox with batteries included. These toolboxes strive for:
+Centralized repository of containers designed for Distrobox with batteries included. These toolboxes strive for:
 
 * Instant launch
 * Intended to be used as general purpose toolboxes for "daily driver" usage
@@ -8,8 +8,8 @@ Centralized repository of containers designed for Toolbox/Distrobox with batteri
 
 ## Images
 
-* `debian-toolbox` - a Debian base image
-* `fedora-toolbox` - a Fedora base image
+* `debian-distrobox` - a Debian base image
+* `fedora-distrobox` - a Fedora base image
 
 It is strongly recommended that the [Ptyxis terminal](https://gitlab.gnome.org/chergert/ptyxis) be used with these toolboxes and is the default experience in both [Bazzite](https://bazzite.gg) and [Bluefin](https://projectbluefin.io).
 

@@ -4,14 +4,14 @@ LABEL com.github.containers.toolbox="true" \
 	usage="This image is meant to be used with the toolbox or distrobox command" \
 	summary="A cloud-native terminal experience powered by Fedora"
 
-COPY ./toolboxes/fedora-toolbox/packages.fedora /tmp/toolbox-packages
+COPY ./distroboxes/fedora-distrobox/packages.fedora /tmp/distrobox-packages
 
 RUN dnf -y upgrade && \
 	dnf copr enable -y atim/starship && \
 	dnf copr enable -y varlad/zellij && \
 	dnf copr enable -y varlad/yazi && \
 	dnf copr enable -y ublue-os/packages && \
-	dnf install -y $(<tmp/toolbox-packages) && \
+	dnf install -y $(<tmp/distrobox-packages) && \
 	dnf install -y "$(curl --silent https://api.github.com/repos/VSCodium/vscodium/releases/latest | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url')" && \
 	dnf clean all
 

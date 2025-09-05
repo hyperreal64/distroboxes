@@ -1,10 +1,10 @@
-name: Build and Push Fedora Toolbox Image
+name: Build and Push Fedora Distrobox Image
 on:
   pull_request:
   merge_group:
   workflow_dispatch:
 env:
-    IMAGE_NAME: fedora-toolbox
+    IMAGE_NAME: fedora-distrobox
     IMAGE_TAGS: latest
     IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
@@ -48,7 +48,7 @@ jobs:
         uses: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056 # v2
         with:
           containerfiles: |
-            ./toolboxes/fedora-toolbox/Containerfile.fedora
+            ./distroboxes/fedora-distrobox/Containerfile.fedora
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ env.IMAGE_TAGS }}
           labels: ${{ steps.meta.outputs.labels }}
