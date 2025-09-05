@@ -5,7 +5,6 @@ LABEL com.github.containers.toolbox="true" \
 	summary="A cloud-native terminal experience powered by Fedora"
 
 COPY ./toolboxes/fedora-toolbox/packages.fedora /tmp/toolbox-packages
-COPY ./files/* /
 
 RUN dnf -y upgrade && \
 	dnf copr enable -y atim/starship && \
@@ -14,8 +13,6 @@ RUN dnf -y upgrade && \
 	dnf copr enable -y ublue-os/packages && \
 	dnf install -y $(<tmp/toolbox-packages) && \
 	dnf install -y "$(curl --silent https://api.github.com/repos/VSCodium/vscodium/releases/latest | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url')" && \
-	dnf clean all && \
-	rm -fv /usr/share/ublue-os/justfile && \
-	ln -sf /usr/share/hyperreal/justfile /usr/share/ublue-os/justfile
+	dnf clean all
 
 RUN rm -rf /tmp/*
