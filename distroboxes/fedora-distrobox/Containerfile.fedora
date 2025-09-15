@@ -12,7 +12,6 @@ RUN dnf -y upgrade && \
 	dnf copr enable -y varlad/yazi && \
 	dnf copr enable -y ublue-os/packages && \
 	dnf install -y $(<tmp/distrobox-packages) && \
-	dnf install -y "$(curl --silent https://api.github.com/repos/VSCodium/vscodium/releases/latest | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url')" && \
 	dnf clean all
 
 RUN rm -rf /tmp/*
